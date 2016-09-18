@@ -14,9 +14,10 @@ def calcprimes(limit):
 
     return primes
 
-def calcprimes(start, limit):
-    """Calc prime numbers between start and limit."""
+def calcprimes(start, delta):
+    """Calc prime numbers between a start value and up to a delta limit."""
     primes = []
+    limit = start + delta
 
     for n in range(start, limit):
         for x in range(2, n):
@@ -44,8 +45,9 @@ def printprimes(limit):
 
     print("")
 
-def printprimes(start, limit):
-    """Print prime numbers between start and limit."""
+def printprimes(start, delta):
+    """Print prime numbers between a start value and up to a delta limit."""
+    limit = start + delta
 
     for n in range(start, limit):
         for x in range(2, n):
@@ -57,3 +59,8 @@ def printprimes(start, limit):
             print (n, end=", ", flush=True)
 
     print("")
+
+# If module is run from commmand line then call printprimes passing in two comandline args
+if __name__ == "__main__":
+    import sys
+    printprimes(int(sys.argv[1]), int(sys.argv[2]))
